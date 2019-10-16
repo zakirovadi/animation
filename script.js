@@ -3,8 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var ipad = document.getElementsByClassName('ipad')[0],
         phone = document.getElementsByClassName('phone')[0],
         cactus = document.getElementsByClassName('cactus')[0],
-        macbook = document.getElementsByClassName('macbook')[0],
-        notebook = document.getElementsByClassName('notebook')[0];
+        macbook = document.getElementsByClassName('macbook')[0];
 
     var background = document.getElementById('background'),
         containerService = document.getElementById('service');
@@ -22,13 +21,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+
+
+
+
+
+
 //-----------MOVE ELEMENTS ON BACKGROUND----------------------
     function moveElements(){
         cactus.style.cssText = 'top: 0; left: 0;';
         macbook.style.cssText = 'top: 0; right: 0;';
         ipad.style.cssText = 'left: 0;';
         phone.style.cssText = 'top: 80px;';
-        notebook.style.cssText = 'right: 40%; transform: rotate(0);';
     }
 
 
@@ -148,42 +152,56 @@ document.addEventListener('DOMContentLoaded', function () {
         btnOpenPopup = document.getElementById('free-consultation'),
         btnClosePopup = document.getElementsByClassName('close')[0];
 
-    btnOpenPopup.addEventListener('click', openPopup);
-    btnClosePopup.addEventListener('click', closePopup);
+    btnOpenPopup.addEventListener('click', showContainerPopup);
+    btnClosePopup.addEventListener('click', hidePopup);
 
-    containerPopup.addEventListener('transitionend', movePopup);
 
-    function openPopup(){
+
+    containerPopup.addEventListener('transitionend', function(){
+
+        if(this.classList.contains('pop-show')){
+            showPopup();
+        }else{
+            btnOpenPopup.style.backgroundColor = '';
+
+            setTimeout(function(){
+                containerPopup.style.display = 'none';
+            }, 400);
+        }
+
+    });
+
+    popup.addEventListener('transitionend', function(){
+
+        if(!this.classList.contains('pop-up-show')){
+            hideContainerPopup();
+        }
+    });
+
+
+    function showContainerPopup(){
         containerPopup.style.display = 'block';
-        this.style.backgroundColor = '#5cbbbe';
+        btnOpenPopup.style.backgroundColor = '#5cbbbe';
 
         setTimeout(function(){
             containerPopup.classList.add('pop-show');
         }, 100);
-        
     }
 
-    function closePopup(){
+    function hideContainerPopup(){
+        containerPopup.classList.remove('pop-show');
+    }
+
+    function showPopup(){
+        popup.classList.add('pop-up-show');
+    }
+
+    function hidePopup(){
         popup.classList.remove('pop-up-show');
-
     }
 
-    function movePopup(event){
-        popupStyle = getComputedStyle(popup);
 
-        if(event.propertyName == 'background-color'){
-            popup.classList.add('pop-up-show');
 
-        }else if(event.propertyName == 'opacity' && popupStyle.opacity == 0){
-            containerPopup.classList.remove('pop-show');
-
-            setTimeout(function(){
-                containerPopup.style.display = 'none';
-            }, 100);
-
-            btnOpenPopup.style.backgroundColor = '';
-        }
-    }
 
 
 //------------Verification POP-UP-------------------------
@@ -209,6 +227,30 @@ document.addEventListener('DOMContentLoaded', function () {
     function removeError(){
         
     }
+
+
+
+
+
+
+
+
+
+//-----------MENU-BURGER-----------------------------------
+    var btnMenu = document.getElementsByClassName('menuBtn')[0],
+        menuUl = document.getElementsByClassName('menuUl')[0];
+
+    btnMenu.addEventListener('click', function(){
+        btnMenu.classList.toggle('menuBtn-active');
+        menuUl.classList.toggle('menuUl-show');
+    })
+
+
+
+
+
+
+
 
 
 

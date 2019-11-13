@@ -4,8 +4,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>e-Repair</title>
-	<script src="script.js"></script>
-	<link rel="stylesheet" href="style.css">
+	<script src="js/script.js"></script>
+	<script src="js/gallery.js"></script>
+	<script src="js/slider.js"></script>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="download">
@@ -60,15 +62,22 @@
 	</div>
 
 	<div class="container" id="service">
-		<span class="service-title move-service">Услуги</span>
-
-		<img class="service-image move-service" src="" alt="">
-
-		<ul class="service move-service">
-		</ul>
-
+		
+		<span class="service-title">Услуги</span>
 
 		<div class="paginator-slider">
+		</div>
+	</div>
+
+	<div class="container">
+		<div id="gallery"></div>
+		<div class="open-gallery" tabindex='-1'>
+
+			<div id="close-gallery">
+				<div class="close-strip"></div>
+			</div>
+
+			<div id="open-gallery"></div>
 		</div>
 	</div>
 

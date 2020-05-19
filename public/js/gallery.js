@@ -1,300 +1,298 @@
-document.addEventListener('DOMContentLoaded', function () {
+// document.addEventListener('DOMContentLoaded', function () {
 
-    var gallery = [
-        {
-            image: 'image/gallery/1.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/2.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/3.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/4.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/5.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/6.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/7.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/8.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/9.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/19.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/11.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/12.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/13.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/14.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/15.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/16.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/17.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/18.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/19.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/20.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/21.jpg',
-            comment: 'some text about this picture',
-        },
-        {
-            image: 'image/gallery/22.jpg',
-            comment: 'some text about this picture',
-        }
-    ]
+//     var gallery = [
+//         {
+//             image: 'image/gallery/1.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/2.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/3.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/4.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/5.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/6.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/7.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/8.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/9.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/19.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/11.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/12.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/13.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/14.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/15.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/16.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/17.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/18.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/19.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/20.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/21.jpg',
+//             comment: 'some text about this picture',
+//         },
+//         {
+//             image: 'image/gallery/22.jpg',
+//             comment: 'some text about this picture',
+//         }
+//     ]
 
 
-    var galleryContainer = document.getElementById('gallery');
-    var containerOpenGallery = document.getElementById('open-gallery');
-    var showOpenGallery = document.getElementsByClassName('open-gallery')[0];
+//     var galleryContainer = document.getElementById('gallery');
+//     var containerOpenGallery = document.getElementById('open-gallery');
+//     var showOpenGallery = document.getElementsByClassName('open-gallery')[0];
 
-    // выводит картинки(без галереи)
-    for(var i = 0; i < gallery.length; i++){
-        var pictureContainer = document.createElement('div'),
-            picture = document.createElement('img');
-            comment = document.createElement('span');
+//     // выводит картинки(без галереи)
+//     for(var i = 0; i < gallery.length; i++){
+//         var pictureContainer = document.createElement('div'),
+//             picture = document.createElement('img');
+//             comment = document.createElement('span');
         
-        comment.classList.add('gallery-comment');
-        comment.innerHTML = (i + 1) + '. ' + gallery[i].comment;
+//         comment.classList.add('gallery-comment');
+//         comment.innerHTML = (i + 1) + '. ' + gallery[i].comment;
 
-        picture.src = gallery[i].image;
+//         picture.src = gallery[i].image;
 
-        pictureContainer.classList.add('gallery-picture');
-        pictureContainer.id = (i) + '-gallery-img';
+//         pictureContainer.classList.add('gallery-picture');
+//         pictureContainer.id = (i) + '-gallery-img';
 
-        pictureContainer.appendChild(picture);
-        pictureContainer.appendChild(comment);
-        pictureContainer.addEventListener('click', openGallery);
+//         pictureContainer.appendChild(picture);
+//         pictureContainer.appendChild(comment);
+//         pictureContainer.addEventListener('click', openGallery);
 
-        galleryContainer.appendChild(pictureContainer);
-    }
+//         galleryContainer.appendChild(pictureContainer);
+//     }
 
 
-    // создать один новый слайд
-    function createImgGallery(id, newId, place, prevElem){
+//     // создать один новый слайд
+//     function createImgGallery(id, newId, place, prevElem){
 
-        prevElem = prevElem || null;
+//         prevElem = prevElem || null;
 
-        var divImg = document.createElement('div'),
-            img = document.createElement("img");
+//         var divImg = document.createElement('div'),
+//             img = document.createElement("img");
             
-        // замкнутость галереи
-        if(id + newId < 0){
-                id = gallery.length;
-                img.src = gallery[id + newId].image;
-                divImg.id = (id + newId) + '-gallery-open';
+//         // замкнутость галереи
+//         if(id + newId < 0){
+//                 id = gallery.length;
+//                 img.src = gallery[id + newId].image;
+//                 divImg.id = (id + newId) + '-gallery-open';
 
-        }else if(id + newId >= gallery.length){
-                id = -1;
-                img.src = gallery[id + newId].image;
-                divImg.id = (id + newId) + '-gallery-open';
+//         }else if(id + newId >= gallery.length){
+//                 id = -1;
+//                 img.src = gallery[id + newId].image;
+//                 divImg.id = (id + newId) + '-gallery-open';
 
-        }else{
-                img.src = gallery[id + newId].image;
-                divImg.id = (id + newId) + '-gallery-open';
-        }
+//         }else{
+//                 img.src = gallery[id + newId].image;
+//                 divImg.id = (id + newId) + '-gallery-open';
+//         }
         
-        divImg.appendChild(img);
-        divImg.addEventListener('click', moveGallery);
+//         divImg.appendChild(img);
+//         divImg.addEventListener('click', moveGallery);
 
-        containerOpenGallery.insertBefore(divImg, prevElem);
+//         containerOpenGallery.insertBefore(divImg, prevElem);
 
-        // новые слайды при создании получают класс для анимации
-        if(place === -1 || place === -2){
-            divImg.classList.add('gallery-img-3');
-            setTimeout(function(){
-                divImg.classList.add('gallery-img' + place);
-                divImg.classList.remove('gallery-img-3');
-            }, 10)
-        }else if(place === 1 || place === 2){
-            divImg.classList.add('gallery-img3');
-            setTimeout(function(){
-                divImg.classList.add('gallery-img' + place);
-                divImg.classList.remove('gallery-img3');
-            }, 10)
-        }else{
-            divImg.classList.add('gallery-img' + place);
-        }
-    }
+//         // новые слайды при создании получают класс для анимации
+//         if(place === -1 || place === -2){
+//             divImg.classList.add('gallery-img-3');
+//             setTimeout(function(){
+//                 divImg.classList.add('gallery-img' + place);
+//                 divImg.classList.remove('gallery-img-3');
+//             }, 10)
+//         }else if(place === 1 || place === 2){
+//             divImg.classList.add('gallery-img3');
+//             setTimeout(function(){
+//                 divImg.classList.add('gallery-img' + place);
+//                 divImg.classList.remove('gallery-img3');
+//             }, 10)
+//         }else{
+//             divImg.classList.add('gallery-img' + place);
+//         }
+//     }
 
-    // пролистывание слайдов (с удалением, без создания новых)
-    function moveImgGallery(num, place){
+//     // пролистывание слайдов (с удалением, без создания новых)
+//     function moveImgGallery(num, place){
 
-        if(num < 0){
-            for(var i = 0; i < Math.abs(num); i++){
-                containerOpenGallery.removeChild(containerOpenGallery.lastChild);
-            }
-        }else if(num > 0){
-            for(var i = 0; i < Math.abs(num); i++){
-                containerOpenGallery.removeChild(containerOpenGallery.firstChild);
-            }
-        }
+//         if(num < 0){
+//             for(var i = 0; i < Math.abs(num); i++){
+//                 containerOpenGallery.removeChild(containerOpenGallery.lastChild);
+//             }
+//         }else if(num > 0){
+//             for(var i = 0; i < Math.abs(num); i++){
+//                 containerOpenGallery.removeChild(containerOpenGallery.firstChild);
+//             }
+//         }
 
-        for(var i = 0; i < containerOpenGallery.children.length; i++){
+//         for(var i = 0; i < containerOpenGallery.children.length; i++){
 
-            containerOpenGallery.children[i].classList.add('gallery-img' + place);
-            containerOpenGallery.children[i].classList.remove(containerOpenGallery.children[i].classList[0]);
+//             containerOpenGallery.children[i].classList.add('gallery-img' + place);
+//             containerOpenGallery.children[i].classList.remove(containerOpenGallery.children[i].classList[0]);
 
-            place++;
-        }
+//             place++;
+//         }
 
-    }
+//     }
 
-    // создать галерею при клике на картинку
-    function openGallery(){
-        // по неизвестной причине работатет только через timeOut
-        window.setTimeout(function(){
-            showOpenGallery.focus();
-        }, 0);  
+//     // создать галерею при клике на картинку
+//     function openGallery(){
+//         // по неизвестной причине работатет только через timeOut
+//         window.setTimeout(function(){
+//             showOpenGallery.focus();
+//         }, 0);  
 
-        // сделать видимой и листаемой
-        showOpenGallery.addEventListener('keydown', function(e){
-            if(e.repeat){
-                return
-            }
+//         // сделать видимой и листаемой
+//         showOpenGallery.addEventListener('keydown', function(e){
+//             if(e.repeat){
+//                 return
+//             }
     
-            if(e.key === 'ArrowRight'){
-                nextImg();
+//             if(e.key === 'ArrowRight'){
+//                 nextImg();
                 
-            }else if(e.key === 'ArrowLeft'){
-                prevImg();
-            }
-        });
-        showOpenGallery.style.display = 'flex';
-        showOpenGallery.addEventListener('click', closeGallery);
+//             }else if(e.key === 'ArrowLeft'){
+//                 prevImg();
+//             }
+//         });
+//         showOpenGallery.style.display = 'flex';
+//         showOpenGallery.addEventListener('click', closeGallery);
 
-        // создать саму галерею
-        for(var i = -3; i <= 3; i++){
-            var imgNum = parseInt(this.id);
+//         // создать саму галерею
+//         for(var i = -3; i <= 3; i++){
+//             var imgNum = parseInt(this.id);
 
-            createImgGallery(imgNum, i, i);
-        }
-    }
+//             createImgGallery(imgNum, i, i);
+//         }
+//     }
 
-    // пролистывание галереи общая 
-    function moveGallery(e){
-        // чтоб не закрылась
-        e.stopPropagation();
+//     // пролистывание галереи общая 
+//     function moveGallery(e){
+//         // чтоб не закрылась
+//         e.stopPropagation();
 
-        if(this.classList.contains('gallery-img' + 0)){
-            return
-        }
+//         if(this.classList.contains('gallery-img' + 0)){
+//             return
+//         }
 
-        // проверка по классам
-        // в зависимости от класса двигать определенным образом
-        if(this.classList.contains('gallery-img' + -3)){
-            moveImgGallery(-3, 0);
+//         // проверка по классам
+//         // в зависимости от класса двигать определенным образом
+//         if(this.classList.contains('gallery-img' + -3)){
+//             moveImgGallery(-3, 0);
 
-            var idFirstImg = parseInt(containerOpenGallery.firstChild.id);
-            createImgGallery(idFirstImg, -1, -1, containerOpenGallery.firstChild);
-            createImgGallery(idFirstImg, -2, -2, containerOpenGallery.firstChild);
-            createImgGallery(idFirstImg, -3, -3, containerOpenGallery.firstChild);
+//             var idFirstImg = parseInt(containerOpenGallery.firstChild.id);
+//             createImgGallery(idFirstImg, -1, -1, containerOpenGallery.firstChild);
+//             createImgGallery(idFirstImg, -2, -2, containerOpenGallery.firstChild);
+//             createImgGallery(idFirstImg, -3, -3, containerOpenGallery.firstChild);
      
-        }else if(this.classList.contains('gallery-img' + -2)){
-            moveImgGallery(-2, -1);
+//         }else if(this.classList.contains('gallery-img' + -2)){
+//             moveImgGallery(-2, -1);
 
-            var idFirstImg = parseInt(containerOpenGallery.firstChild.id);
-            createImgGallery(idFirstImg, -1, -2, containerOpenGallery.firstChild);
-            createImgGallery(idFirstImg, -2, -3, containerOpenGallery.firstChild);
+//             var idFirstImg = parseInt(containerOpenGallery.firstChild.id);
+//             createImgGallery(idFirstImg, -1, -2, containerOpenGallery.firstChild);
+//             createImgGallery(idFirstImg, -2, -3, containerOpenGallery.firstChild);
 
-        }else if(this.classList.contains('gallery-img' + -1)){
-            prevImg();
+//         }else if(this.classList.contains('gallery-img' + -1)){
+//             prevImg();
 
-        }else if(this.classList.contains('gallery-img' + 1)){
-            nextImg();
+//         }else if(this.classList.contains('gallery-img' + 1)){
+//             nextImg();
             
-        }else if(this.classList.contains('gallery-img' + 2)){
-            moveImgGallery(2, -3);
+//         }else if(this.classList.contains('gallery-img' + 2)){
+//             moveImgGallery(2, -3);
 
-            var idLastImg = parseInt(containerOpenGallery.lastChild.id);
-            createImgGallery(idLastImg, 1, 2);
-            createImgGallery(idLastImg, 2, 3);
+//             var idLastImg = parseInt(containerOpenGallery.lastChild.id);
+//             createImgGallery(idLastImg, 1, 2);
+//             createImgGallery(idLastImg, 2, 3);
             
-        }else if(this.classList.contains('gallery-img' + 3)){
-            moveImgGallery(3, -3);
+//         }else if(this.classList.contains('gallery-img' + 3)){
+//             moveImgGallery(3, -3);
 
-            var idLastImg = parseInt(containerOpenGallery.lastChild.id);
-            createImgGallery(idLastImg, 1, 1);
-            createImgGallery(idLastImg, 2, 2);
-            createImgGallery(idLastImg, 3, 3);
+//             var idLastImg = parseInt(containerOpenGallery.lastChild.id);
+//             createImgGallery(idLastImg, 1, 1);
+//             createImgGallery(idLastImg, 2, 2);
+//             createImgGallery(idLastImg, 3, 3);
             
-        }
-    }
+//         }
+//     }
 
-    function prevImg(){
-        moveImgGallery(-1, -2);
+//     function prevImg(){
+//         moveImgGallery(-1, -2);
                 
-        var idFirstImg = parseInt(containerOpenGallery.firstChild.id);
-        createImgGallery(idFirstImg, -1, -3, containerOpenGallery.firstChild);
-    }
+//         var idFirstImg = parseInt(containerOpenGallery.firstChild.id);
+//         createImgGallery(idFirstImg, -1, -3, containerOpenGallery.firstChild);
+//     }
 
-    function nextImg(){
-        moveImgGallery(1, -3);
+//     function nextImg(){
+//         moveImgGallery(1, -3);
     
-        var idLastImg = parseInt(containerOpenGallery.lastChild.id);
-        createImgGallery(idLastImg, 1, 3);
-    }
+//         var idLastImg = parseInt(containerOpenGallery.lastChild.id);
+//         createImgGallery(idLastImg, 1, 3);
+//     }
 
-    // закрыть галерею
-    function closeGallery(){
-        var showOpenGallery = document.getElementsByClassName('open-gallery')[0];
-        showOpenGallery.style.display = 'none';
-
-
-        while(containerOpenGallery.firstChild){
-            containerOpenGallery.removeChild(containerOpenGallery.firstChild);
-        }
-    }
+//     // закрыть галерею
+//     function closeGallery(){
+//         var showOpenGallery = document.getElementsByClassName('open-gallery')[0];
+//         showOpenGallery.style.display = 'none';
 
 
+//         while(containerOpenGallery.firstChild){
+//             containerOpenGallery.removeChild(containerOpenGallery.firstChild);
+//         }
+//     }
 
 
 
@@ -314,4 +312,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-})
+
+
+// })

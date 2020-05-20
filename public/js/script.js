@@ -48,75 +48,79 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //--------------SHOW TIME ON IPAD------------------------------
 
-    // const addZero = num => num < 10 ? '0' + num : num;
+    const addZero = num => num < 10 ? '0' + num : num;
 
-    // const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-    //     month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-    // function changeOpacitySlowly(elem, func){
-    //     var id = setInterval(func(elem), 100);
+    function changeOpacitySlowly(elem, func){
+        var id = setInterval(func(elem), 100);
             
-    //     setTimeout(function(){
-    //         clearInterval(id);
-    //     }, 1000)
-    // }
+        setTimeout(function(){
+            clearInterval(id);
+        }, 1000)
+    }
 
-    // function addOpacity(elem){
-    //     var num = 0.1;
+    function addOpacity(elem){
+        var num = 0.1;
 
-    //     return () => {
-    //         if (elem.style.opacity < 1){
-    //             num += 0.1;
-    //             elem.style.opacity = num;
-    //             return num;
-    //         }
-    //     }
+        return () => {
+            if (elem.style.opacity < 1){
+                num += 0.1;
+                elem.style.opacity = num;
+                return num;
+            }
+        }
+    }
+
+    function deleteOpacity(elem){
+        var num = 1;
+
+        return () => {
+            if (elem.style.opacity > 0){
+                num -= 0.1;
+                elem.style.opacity = num;
+                return num;
+            }
+        }
         
-    // }
-
-    // function deleteOpacity(elem){
-    //     var num = 1;
-
-    //     return () => {
-    //         if (elem.style.opacity > 0){
-    //             num -= 0.1;
-    //             elem.style.opacity = num;
-    //             return num;
-    //         }
-    //     }
-        
-    // }    
+    }    
        
+    const ipadImg = document.getElementById('ipad-img'),
+        ipadUnlock = document.getElementsByClassName('ipad-unlock')[0];
 
-    // let isShowWatch = true;
+    ipadImg.addEventListener('mouseover', () => {
 
-    // ipad.addEventListener('mouseover', () => {
+        ipadUnlock.style.width = ipadImg.width + 'px';
+        ipadUnlock.style.height = ipadImg.height + 'px';
 
-    //     if(isShowWatch){
-    //         isShowWatch = false;
-    //         const date = new Date();
+        const date = new Date();
 
-    //         const ipadWatch = document.getElementsByClassName('ipadWatch')[0],
-    //             ipadDate = document.getElementsByClassName('ipadDate')[0];
+        const ipadWatch = document.getElementsByClassName('ipad-watch')[0],
+            ipadDate = document.getElementsByClassName('ipad-date')[0];
 
-    //         ipadWatch.style.opacity = '0.0';
-    //         ipadDate.style.opacity = '0.0';
+        ipadWatch.style.opacity = '0.0';
+        ipadDate.style.opacity = '0.0';
             
-    //         ipadWatch.innerHTML = date.getHours() + ':' + addZero(date.getMinutes());
-    //         ipadDate.innerHTML = daysOfWeek[date.getDay()] + ', ' + date.getDate() + ' ' + month[date.getMonth()];
+        ipadWatch.innerHTML = date.getHours() + ':' + addZero(date.getMinutes());
+        ipadDate.innerHTML = daysOfWeek[date.getDay()] + ', ' + date.getDate() + ' ' + month[date.getMonth()];
         
             
-    //         changeOpacitySlowly(ipadWatch, addOpacity);
-    //         changeOpacitySlowly(ipadDate, addOpacity);
-            
-    //         setTimeout(function(){
-    //             changeOpacitySlowly(ipadWatch, deleteOpacity);
-    //             changeOpacitySlowly(ipadDate, deleteOpacity);
-    //             isShowWatch = true;
-    //         }, 10000)
+        changeOpacitySlowly(ipadWatch, addOpacity);
+        changeOpacitySlowly(ipadDate, addOpacity);
 
-    //     }
-    // });
+        setTimeout(() => {
+            changeOpacitySlowly(ipadWatch, deleteOpacity);
+            changeOpacitySlowly(ipadDate, deleteOpacity);
+        }, 10000)
+
+        setTimeout(() => {
+            ipadUnlock.style.width = 0;
+            ipadUnlock.style.height = 0;
+        }, 11000)
+    });
+
+
 
 
 

@@ -182,6 +182,8 @@ nav{
 
     background-color: #1d1d1de7;
     height: 80vh;
+    position: relative;
+    z-index: 99;
 }
 .menu-mobile{
     transform: none;
@@ -285,9 +287,10 @@ nav{
 @media screen and (min-width: 750px){
     nav {
         width: 60%;
-        background-color: rgb(255, 255, 255, 0);
+        background-color: rgba(255, 255, 255, 0);
         height: auto;
         transform: none;
+        margin-top: 2em;
     }
 
     .menu{
@@ -430,6 +433,7 @@ h1{
     height: 70%;
     transform: translate3d(-5em, 0, 0);
     -webkit-transform: translate3d(-5em, 0, 0);
+    z-index: 0;
 }
 .ipad img{
     left: 0;
@@ -479,11 +483,12 @@ h1{
 
 
 
+/* -----WATCH ON IPAD------ */
+.ipad-unlock{
+    position: relative;
+}
 
-.ipadUnlock{
-    position: absolute;
-    top: 30%;
-    left: 20%;
+.ipad-text{
     color: #ffffffa8;
     font-family: Roboto-Thin;
 
@@ -491,12 +496,27 @@ h1{
     flex-direction: column;
     align-items: center;
     transform: rotate(-18deg);
+    position: absolute;
+    top:35%;
+    width: 40%;
+}
+@media screen and (max-width: 600px){
+    .ipad-text{
+        font-size: 0.8em;
+        top: 40%
+    }
+}
+@media screen and (max-width: 500px){
+    .ipad-text{
+        font-size: 0.6em;
+        top: 40%
+    }
 }
 
-.ipadWatch{
-    font-size: 2.5vw;
+.ipad-watch{
+    font-size: 2em;
 }
 
-.ipadDate{
-    font-size: 1vw;
+.ipad-date{
+    font-size: 0.6em;
 }

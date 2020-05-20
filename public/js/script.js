@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //-----------MOVE ELEMENTS ON BACKGROUND----------------------
     const moveElements = () => {
         const removeTransform = 'transform: none';
-        
+
         macbook.style.cssText = removeTransform;
         cactus.style.cssText = removeTransform;
         ipad.style.cssText = removeTransform;
@@ -125,16 +125,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //-----------MENU-BURGER-----------------------------------
-    // var btnMenu = document.getElementsByClassName('menuBtn')[0],
-    //     menuUl = document.getElementsByClassName('menuUl')[0],
-    //     nav = document.getElementsByTagName('nav')[0];
+    const btnMenu = document.getElementsByClassName('menu-burger')[0],
+        menu = document.getElementsByClassName('menu')[0],
+        nav = document.getElementsByTagName('nav')[0];
 
-    // btnMenu.addEventListener('click', function(){
-    //     btnMenu.classList.toggle('menuBtn-active');
-    //     menuUl.classList.toggle('menuUl-show');
-    //     cactus.classList.toggle('move-cactus');
-    //     nav.classList.toggle('open-menu');
-    // })
+    nav.addEventListener('click', () => {
+
+        if(btnMenu.classList.contains('menu-arrow-up')){
+            btnMenu.classList.remove('menu-arrow-up');
+            nav.classList.remove('menu-mobile');
+        }else{
+            btnMenu.classList.add('menu-arrow-up');
+            nav.classList.add('menu-mobile');
+        }
+    })
 
 
 
@@ -153,7 +157,5 @@ document.addEventListener('DOMContentLoaded', () => {
             body.classList.remove('download');
             window.scrollTo(0,0);
             moveElements();
-
-            clearInterval(loader);
         }
 })

@@ -148,9 +148,9 @@ input, textarea{
 
 /* ---------------BACKGROUND------------------------- */
 .move{
-    transition: top 1s ease-in 0s,
-                left 1s ease-in 0s,
-                right 1s ease-in 0s;
+    transition: transform 1s ease-in 0s;
+    -webkit-transition: transform 1s ease-in 0s;
+    -webkit-transition: -webkit-transform 1s ease-in 0s;
 }
 
 #background{
@@ -310,6 +310,8 @@ h1{
     right: 0;
     width: 75%;
     height: 60%;
+    transform: translate3d(5em, -5em, 0);
+    -webkit-transform: translate3d(5em, -5em, 0);
 }
 .macbook img{
     top: 0;
@@ -321,6 +323,8 @@ h1{
     width: 40%;
     height: 50%;
     left: -15%;
+    transform: translate3d(-3em, -2em, 0);
+    -webkit-transform: translate3d(-3em, -2em, 0);
 }
 .cactus img{
     right: 1em;
@@ -328,7 +332,6 @@ h1{
 @media screen and (min-width: 1100px){
     .cactus{
         left: auto;
-        right: 50%;
     }
 }
 
@@ -337,6 +340,8 @@ h1{
     left: 0;
     width: 50%;
     height: 70%;
+    transform: translate3d(-5em, 0, 0);
+    -webkit-transform: translate3d(-5em, 0, 0);
 }
 .ipad img{
     left: 0;
@@ -347,6 +352,8 @@ h1{
     right: 0;
     width: 30%;
     height: 30%;
+    transform: translate3d(5em, 2em, 0);
+    -webkit-transform: translate3d(5em, 2em, 0);
 }
 .phone img{
     right: 10%;
@@ -363,6 +370,8 @@ h1{
     left: 15%;
     width: 20%;
     height: 20%;
+    transform: translate3d(-5em, 3em, 0);
+    -webkit-transform: translate3d(-5em, 3em, 0);
 }
 .coffee img{
     bottom: 0;

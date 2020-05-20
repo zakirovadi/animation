@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    const ipad = document.getElementsByClassName('ipad')[0],
-        phone = document.getElementsByClassName('phone')[0],
+    const macbook = document.getElementsByClassName('macbook')[0],
         cactus = document.getElementsByClassName('cactus')[0],
-        macbook = document.getElementsByClassName('macbook')[0],
-        menu = document.getElementsByTagName('nav')[0];
+        ipad = document.getElementsByClassName('ipad')[0],
+        phone = document.getElementsByClassName('phone')[0],
+        coffee = document.getElementsByClassName('coffee')[0];
 
     const background = document.getElementById('background');
 
@@ -31,13 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //-----------MOVE ELEMENTS ON BACKGROUND----------------------
-    // const moveElements = () => {
-    //     ipad.style.cssText = 'left: 0;';
-    //     cactus.style.cssText = 'top: 0';
-    //     macbook.style.cssText = 'top: 0; right: 0;';
-    //     phone.style.cssText = 'right: 0; bottom: 0';
-    //     menu.style.cssText = 'left: 0';
-    // }
+    const moveElements = () => {
+        const removeTransform = 'transform: none';
+        
+        macbook.style.cssText = removeTransform;
+        cactus.style.cssText = removeTransform;
+        ipad.style.cssText = removeTransform;
+        phone.style.cssText = removeTransform;
+        coffee.style.cssText = removeTransform;
+    }
 
 
 

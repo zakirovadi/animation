@@ -1,121 +1,87 @@
-// document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
 
-//     var gallery = [
-//         {
-//             image: 'image/gallery/1.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/2.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/3.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/4.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/5.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/6.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/7.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/8.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/9.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/19.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/11.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/12.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/13.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/14.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/15.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/16.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/17.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/18.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/19.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/20.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/21.jpg',
-//             comment: 'some text about this picture',
-//         },
-//         {
-//             image: 'image/gallery/22.jpg',
-//             comment: 'some text about this picture',
-//         }
-//     ]
+    var gallery = [
+        {
+            image: 'image/gallery/1.jpg',
+            comment: 'some text about this picture',
+        },
+        {
+            image: 'image/gallery/2.jpg',
+            comment: 'some text about this picture',
+        },
+        {
+            image: 'image/gallery/3.jpg',
+            comment: 'some text about this picture',
+        },
+        {
+            image: 'image/gallery/4.jpg',
+            comment: 'some text about this picture',
+        },
+        {
+            image: 'image/gallery/5.jpg',
+            comment: 'some text about this picture',
+        },
+        {
+            image: 'image/gallery/6.jpg',
+            comment: 'some text about this picture',
+        },
+        {
+            image: 'image/gallery/7.jpg',
+            comment: 'some text about this picture',
+        },
+        {
+            image: 'image/gallery/8.jpg',
+            comment: 'some text about this picture',
+        },
+        {
+            image: 'image/gallery/9.jpg',
+            comment: 'some text about this picture',
+        }
+    ]
 
+    const galleryContainer = document.getElementById('gallery');
+
+    // отрисовать галерею
+    for(let i = 0; i < gallery.length; i++){
+        const pictureContainer = document.createElement('div'),
+            picture = document.createElement('img'),
+            comment = document.createElement('span');
+        
+        comment.classList.add('gallery-comment');
+        comment.id = (i) + '-gallery-comment';
+        comment.innerHTML = gallery[i].comment;
+
+        picture.src = gallery[i].image;
+
+        pictureContainer.classList.add('gallery-img');
+        pictureContainer.id = (i) + '-gallery-img';
+
+        pictureContainer.appendChild(picture);
+        pictureContainer.appendChild(comment);
+        pictureContainer.addEventListener('mouseover', () => showComment(pictureContainer.id));
+        pictureContainer.addEventListener('mouseout', () => hideComment(pictureContainer.id));
+        // pictureContainer.addEventListener('click', openGallery);
+
+        galleryContainer.appendChild(pictureContainer);
+    }
+
+
+
+    function showComment (id){
+        const comment = document.getElementById(`${parseInt(id)}-gallery-comment`);
+        comment.classList.add('gallery-comment-show');
+    }
+
+    function hideComment (id){
+        const comment = document.getElementById(`${parseInt(id)}-gallery-comment`);
+        comment.classList.remove('gallery-comment-show');
+    }
 
 //     var galleryContainer = document.getElementById('gallery');
 //     var containerOpenGallery = document.getElementById('open-gallery');
 //     var showOpenGallery = document.getElementsByClassName('open-gallery')[0];
 
-//     // выводит картинки(без галереи)
-//     for(var i = 0; i < gallery.length; i++){
-//         var pictureContainer = document.createElement('div'),
-//             picture = document.createElement('img');
-//             comment = document.createElement('span');
-        
-//         comment.classList.add('gallery-comment');
-//         comment.innerHTML = (i + 1) + '. ' + gallery[i].comment;
 
-//         picture.src = gallery[i].image;
-
-//         pictureContainer.classList.add('gallery-picture');
-//         pictureContainer.id = (i) + '-gallery-img';
-
-//         pictureContainer.appendChild(picture);
-//         pictureContainer.appendChild(comment);
-//         pictureContainer.addEventListener('click', openGallery);
-
-//         galleryContainer.appendChild(pictureContainer);
-//     }
 
 
 //     // создать один новый слайд
@@ -294,24 +260,4 @@
 //         }
 //     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// })
+})

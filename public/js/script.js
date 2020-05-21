@@ -9,26 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         phone = document.getElementsByClassName('phone')[0],
         coffee = document.getElementsByClassName('coffee')[0];
 
-    const background = document.getElementById('background');
-
-
-
-
-//-----------------SCROLL PAGE--------------------------------------
-    // var toggleScroll = true;
-
-    // window.addEventListener('scroll', function() {
-    //     if(pageYOffset > background.scrollHeight / 3 && toggleScroll === true){
-    //         // moveSliderService();
-    //         toggleScroll = false;
-    //     }
-    // });
-
-
-
-
-
-
 
 //-----------MOVE ELEMENTS ON BACKGROUND----------------------
     const moveElements = () => {

@@ -1,174 +1,148 @@
-// document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
 
 
-//     var service = [
-//         {
-//             image: 'image/service/phone.png',
-//             text: [
-//                 'замена деталей',
-//                 'ремонт после попадания жидкости',
-//                 'програмный ремонт (прошивка)',
-//                 'ремонт материнской платы'
-//             ]
-//         },
-//         {
-//             image: 'image/service/iPadPro.png',
-//             text: [
-//                 '! замена деталей',
-//                 '! ремонт после попадания жидкости',
-//                 '! програмный ремонт (прошивка)',
-//             ]
-//         }
-//     ];
+    const slider = [
+        {
+            image: 'image/service/Cactus Plant in Pot.jpg',
+            name: 'Cactus',
+            comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        },
+        {
+            image: 'image/service/Four Cactuses.jpg',
+            name: 'Cactuses',
+            comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        },
+        {
+            image: 'image/service/From the Land.jpg',
+            name: 'Another Cactus',
+            comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        },
+        {
+            image: 'image/service/Succulents.jpg',
+            name: 'Succulents',
+            comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        }
+    ];
 
+    let sliderCounter = 0,
+        pagId = -1,
+        sliderTimeout;
+
+    const pag = document.getElementsByClassName('slider-pag')[0],
+        containerImg = document.getElementsByClassName('slider-img')[0],
+        imgSlide = document.getElementById('slide-img'),
+        containerText = document.getElementsByClassName('slider-info')[0],
+        nameSlide = document.getElementById('slide-name'),
+        commentSlide = document.getElementById('slide-comment');
     
 
-//     var pag = document.getElementsByClassName('paginator-slider')[0];
-//     var counterSlider = 0;
-//     var idIntervalSlider;
 
-//     // создать слайды
-//     for(var i = 0; i < service.length; i++){
-//         var containerSlide = document.createElement('div'),
-//             img = document.createElement('img'),
-//             list = document.createElement('ul');
+    // создать paginator
+    for(let i = 0; i < slider.length; i++){
+        const pagItem = document.createElement('div');
+        pagItem.addEventListener('click', (e) => pagChangeSlide(e.target.id));
 
-//         for(var k = 0; k < service[i].text.length; k++){
-//             var listItem = document.createElement('li');
-//             listItem.innerHTML = service[i].text[k];
+        pagItem.id = i + '-pag';
+        pag.appendChild(pagItem);
+    }
 
-//             list.appendChild(listItem);
-//         }
+    // найти активный pag
+    const activePag = num => {
+        const pagItems = pag.children;
+        for(let i = 0; i < pagItems.length; i++){
+            i === num 
+            ? pagItems[i].classList.add('active-pag') 
+            : pagItems[i].classList.remove('active-pag');
+        }
+    }
 
-//         img.src = service[i].image;
-
-//         if(i === counterSlider){
-//             containerSlide.style.display = 'flex';
-//             containerSlide.classList.add('active-slide');
-//         }
-
-//         img.addEventListener('transitionend', showNextSlide);
-
-//         containerSlide.classList.add('slide');
-//         containerSlide.id = i + '-slide';
-
-//         containerSlide.appendChild(img);
-//         containerSlide.appendChild(list);
-
-//         pag.parentNode.insertBefore(containerSlide, pag);
-
-//         // создать переключатель
-//         var pagItem = document.createElement('div');
-//         pagItem.addEventListener('click', changeSlidePag);
-
-//         if(i === 0){
-//             pagItem.classList.add('active-pag');
-//         }
-
-//         pagItem.id = i + '-pag';
-//         pag.appendChild(pagItem);
-//     }
-
-//     moveSliderService();
-
-//     // вызывает слайдер
-//     function moveSliderService(){
-//         return idIntervalSlider = setInterval(function(){
-//             changeSlide();
-//         }, 7000);
-//     }
-
-//     // удаляет акивный слайд
-//     function changeSlide(){
-//         var slide = document.getElementsByClassName('active-slide')[0];
-//         slide.classList.remove('active-slide');
-//     }
-
-//     // показывает новый слайд
-//     function showNewSlide(id){
-
-//         var nextSlide = document.getElementById(id + '-slide');
-//         nextSlide.style.display = 'flex';
-//         setTimeout(function(){
-//             nextSlide.classList.add('active-slide');
-//         });
-
-//         changeActivePaginator(id);
-//     }
-
-//     // вызывается окончанием transition на image
-//     // меняет слайд на новый
-//     function showNextSlide(){
-//         var slide = this.parentNode;
-
-//         if(slide.classList.contains('active-slide')){
-//             return
-//         }
-
-//         var id = 1 + parseInt(slide.id);
-
-//         if(id > service.length - 1){
-//             id = 0;
-//         }
-
-//         slide.style.display = 'none';
-
-//         showNewSlide(id);
-//     }
-
-//     function changeSlidePag(){
-//         if(this.classList.contains('active-pag')){
-//             return
-//         }
-
-//         var id = parseInt(this.id);
-
-//         var slide = document.getElementsByClassName('active-slide')[0];
-//         changeSlide();
-
-//         slide.style.display = 'none';
-        
-//         showNewSlide(id);
-
-//         clearInterval(idIntervalSlider);
-//         moveSliderService();
-//     }
-
-//     // меняет активный Pag
-//     function changeActivePaginator(id){
-
-//         for(var i = 0; i < pag.children.length; i++){
-//             pag.children[i].classList.remove('active-pag');
-//         }
-
-//         pag.children[id].classList.add('active-pag');
-//     }
+    activePag(sliderCounter);
 
 
 
 
 
+    // подвинуть картинку с лева
+    const showImg = () => {
+        setTimeout(() => {
+            containerImg.classList.remove('slider-left');
+            containerText.classList.remove('slider-right');
+        }, 1000);
+    }
+
+    // подвинуть картинку на право
+    const hideImg = () => {
+        containerImg.classList.add('slider-right');
+        containerText.classList.add('slider-left');
+    }
+
+    // вернуть в изначальное положение
+    const returnImgInitialState = () => {
+        containerImg.classList.remove('slider-right');
+        containerText.classList.remove('slider-left');
+
+        containerImg.classList.add('slider-left');
+        containerText.classList.add('slider-right');
+    }
 
 
 
+    // создать слайд
+    const createSlide = id => {
+        imgSlide.src = slider[id].image;
+        nameSlide.innerHTML = slider[id].name;
+        commentSlide.innerHTML = slider[id].comment;
+
+        showImg();
+    }
+
+    createSlide(sliderCounter);
 
 
+    
+    // спрятать слайд
+    const moveSlider = () => {
+        sliderTimeout = setTimeout(() => {
+            hideImg();
+        }, 5000);
+        return sliderTimeout;
+    }
+    
+    moveSlider();
 
 
+    containerImg.addEventListener('transitionend', (e) => changeSlide(e.target));
+    
+    // поменять слайд
+    const changeSlide = elem => {
+        if(elem.classList.contains('slider-right')){
+            returnImgInitialState();
 
+            checkCounter();
+            createSlide(sliderCounter);
+            activePag(sliderCounter);
+            moveSlider();
+    
+            return pagId = -1;
+        }
+    }
 
+    // изменить слайд через paginator
+    function pagChangeSlide(str) {
+        const id = parseInt(str);
+        clearTimeout(sliderTimeout);
 
+        hideImg();
 
+        return pagId = id;
+    }
 
+    // номер слайда
+    const checkCounter = () => {
+        sliderCounter++;
 
-
-
-
-
-
-
-
-
-
-
-// });
+        pagId !== -1 
+        ? sliderCounter = pagId 
+        : sliderCounter === slider.length ? sliderCounter = 0 : sliderCounter;
+    }
+});

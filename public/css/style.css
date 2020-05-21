@@ -34,13 +34,9 @@ body{
     }
 }
 
-.container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
+h2{
+    font-size: 4em;
+    align-self: flex-start;
 }
 
 input, textarea{

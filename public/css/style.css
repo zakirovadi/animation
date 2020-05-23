@@ -43,6 +43,23 @@ input, textarea{
     outline: none;
 }
 
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 300px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 10%;
+    box-sizing: border-box;
+    z-index: 999;
+    background-color: rgba(29, 29, 29, 0.5);
+    outline: none;
+}
+
 @font-face{
     font-family: Roboto-Thin;
     src: url('../fonts/Roboto/Roboto-Thin.ttf');
@@ -78,6 +95,7 @@ input, textarea{
 .download{
     visibility: hidden; 
     height: 100vh;
+    overflow: hidden;
     width: 100%;   
 }
 

@@ -28,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
         pagId = -1,
         sliderTimeout;
 
-    const pag = document.getElementsByClassName('slider-pag')[0],
+    const containerSlider = document.getElementById('slider'),
+        pag = document.getElementsByClassName('slider-pag')[0],
         containerImg = document.getElementsByClassName('slider-img')[0],
         imgSlide = document.getElementById('slide-img'),
         containerText = document.getElementsByClassName('slider-info')[0],
@@ -36,6 +37,24 @@ document.addEventListener('DOMContentLoaded', () => {
         commentSlide = document.getElementById('slide-comment');
     
 
+    // слайдер работает только если виден
+    const maxHeightScreen = document.documentElement.clientHeight / 4 * 3,
+        minHeightScreen = document.documentElement.clientHeight / 4 * 3;
+        
+    let allowMove = false;
+    
+    window.onscroll = function() {clientSee()};
+
+    const clientSee = () => {
+        if (maxHeightScreen  > containerSlider.getBoundingClientRect().top &&
+            minHeightScreen < containerSlider.getBoundingClientRect().bottom) {
+            return allowMove = true;
+        } else {
+            return allowMove = false;
+        }
+    }
+
+    
 
     // создать paginator
     for(let i = 0; i < slider.length; i++){
@@ -93,11 +112,19 @@ document.addEventListener('DOMContentLoaded', () => {
         nameSlide.innerHTML = slider[id].name;
         commentSlide.innerHTML = slider[id].comment;
 
-        showImg();
+        if(allowMove){
+            showImg();
+            moveSlider();
+        }else{
+            const idInterval = setInterval(() => {
+                if(allowMove){
+                    showImg();
+                    moveSlider();
+                    clearInterval(idInterval);
+                }
+            }, 10);
+        }
     }
-
-    createSlide(sliderCounter);
-
 
     
     // спрятать слайд
@@ -108,7 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return sliderTimeout;
     }
     
-    moveSlider();
+
+    createSlide(sliderCounter);
 
 
     containerImg.addEventListener('transitionend', (e) => changeSlide(e.target));
@@ -121,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
             checkCounter();
             createSlide(sliderCounter);
             activePag(sliderCounter);
-            moveSlider();
     
             return pagId = -1;
         }

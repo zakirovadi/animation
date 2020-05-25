@@ -27,9 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
         zoom.classList.add('gallery-zoom');
         zoom.id = (i) + '-gallery-zoom';
         zoom.appendChild(text);
+        
         zoom.addEventListener('transitionend', e => e.target.classList.contains('gallery-zoom-show') ? text.style.opacity = 1 : null);
-        zoom.addEventListener('mouseout', () => text.style.opacity = 0);
-        zoom.addEventListener('click', () => openGallery(i));
+        zoom.addEventListener('click', () => getComputedStyle(text).opacity == 1 ? openGallery(i) : null);
 
         picture.src = gallery[i];
 
@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function hideZoom (id){
         const comment = document.getElementById(id + '-gallery-zoom');
+        comment.firstChild.style.opacity = 0;
         comment.classList.remove('gallery-zoom-show');
     }
 
@@ -138,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
             divImg.classList.add('gallery-img-' + position);
         }
         
-        divImg.addEventListener('click', (e) => {changeSlide(checkedIdImg, +/\d+/.exec(divImg.classList[0])); e.stopPropagation()});
+        imgGallery.addEventListener('click', (e) => {changeSlide(checkedIdImg, +/\d+/.exec(divImg.classList[0])); e.stopPropagation()});
 
         divImg.appendChild(imgGallery);
         return divImg;

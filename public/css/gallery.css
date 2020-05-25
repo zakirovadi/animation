@@ -129,7 +129,6 @@
 .gallery-img-6 img,
 .gallery-img-0 img{
     max-width: 60%;
-    min-height: 100px;
     max-height: 25%;
 }
 
@@ -137,7 +136,6 @@
 .gallery-img-1 img{
     z-index: 4;
     max-width: 60%;
-    min-height: 150px;
     max-height: 50%;
 }
 
@@ -145,7 +143,6 @@
 .gallery-img-2 img{
     z-index: 5;
     max-width: 80%;
-    min-height: 200px;
     max-height: 75%;
 }
 
@@ -158,7 +155,6 @@
 #open-gallery .gallery-img-3 img{
     max-width: 90%;
     z-index: 6;
-    min-height: 250px;
     max-height: 100%;
 }
 

@@ -124,8 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // валидация коментария
     commentsForm1.elements.comment.addEventListener('change', e => validateComment(e.target));
     commentsForm2.elements.comment.addEventListener('change', e => validateComment(e.target));
-    commentsForm1.elements.comment.addEventListener('input', e => e.target.dataset.touched === 'true' ? validateName(e.target) : null);
-    commentsForm2.elements.comment.addEventListener('input', e => e.target.dataset.touched === 'true' ? validateName(e.target) : null);
+    commentsForm1.elements.comment.addEventListener('input', e => e.target.dataset.touched === 'true' ? validateComment(e.target) : null);
+    commentsForm2.elements.comment.addEventListener('input', e => e.target.dataset.touched === 'true' ? validateComment(e.target) : null);
 
     const validateComment = comment => {
         comment.dataset.touched = 'true';
@@ -142,9 +142,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendComment = form => {
         if(form.elements.name.classList.contains('error') || form.elements.name.dataset.touched === 'false'){
             form.elements.name.classList.add('error');
+            form.elements.name.dataset.touched === 'true';
             return
         }else if(form.elements.comment.classList.contains('error') || form.elements.comment.dataset.touched === 'false'){
             form.elements.comment.classList.add('error');
+            form.elements.comment.dataset.touched === 'true'
             return
         }
 

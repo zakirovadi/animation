@@ -10,13 +10,14 @@
 	<script src="js/gallery.js"></script>
 	<script src="js/slider.js"></script>
 	<script src="js/comments.js"></script>
+	<script src="js/popUp.js"></script>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="download">
 
 
-	<!-- pre-loader -->
+	<!-- preloader -->
 	<div class="loader">
 		<div class="backdrop"> 
 			<div class="dot"></div>
@@ -27,6 +28,8 @@
 		</div>
 	</div>
 	
+
+	<!-- first part of page -->
 	<div id="background">
 		<nav>
 			<ul class="menu">
@@ -87,30 +90,22 @@
 	</div>
 
 
-
-
-	<!-- <div class="pop-up-container">
-		<div class="pop-up">
-			<div class="close">
-				<div class="close-strip"></div>
-			</div>
+	<!-- pop-up "send message" -->
+	<div class="overlay" id="overlay-pop-up">
+		<form name="sendMessage" class="pop-up">
+			<label for="message-name">Your name:</label>
+			<input data-touched="false" id="message-name" type="text" name="name" required>
+			<label for="message-email">Email:</label>
+			<input data-touched="false" type="email" name="email" id="message-email" required>
+			<label for="message-text">Message:</label>
+			<textarea data-touched="false" type="text" name="message" id="message-text" rows="4" maxlength="200" required></textarea>
 			
-			<form action="">
-				<span>Ваше имя:</span><br>
-				<input id="clientName" type="text" name="name"><br>
-				<span>Номер телефона:</span><br>
-				<input id="clientTel" type="tel" name="phone"><br>
-				<span>Опишите коротко проблему:</span><br>
-				<textarea class="pop-up-problem" name="problem" cols="60" rows="5"></textarea><br>
-			</form>
-
-			<button class="pop-up-button">ОТПРАВИТЬ</button>
-
-		</div>
-	</div>-->
+			<button type="submit" name="submit">Send</button>
+		</form>
+	</div>
 
 
- 
+	<!-- slider -->
 	<div id="slider">
 		
 		<h2>Slider.</h2>
@@ -130,9 +125,7 @@
 	</div>
 
 
-
-
-
+	<!-- gallery -->
 	<div id="gallery">
 		<div class="gallery-header">
 			<h2>Gallery.</h2>
@@ -141,62 +134,64 @@
 		
 	</div>
 
+	<!-- slider with gallery -->
 	<div class="overlay" id="overlay-gallery" tabindex="0">
 		<div id="open-gallery">
 		</div>
 	</div>
 
 
+	<!-- comments -->
 	<div id="comments">
 		<h2>Comments.</h2>
-		<div class="comments">
+			<div class="comments">
 
-		<div class="card">
-			<div class="card-img">
-				<img src="image/service/Four Cactuses.jpg" alt="cactuses">
-			</div>
-			<div class="card-text">
+			<div class="card">
+				<div class="card-img">
+					<img src="image/service/Four Cactuses.jpg" alt="cactuses">
+				</div>
+				<div class="card-text">
 
-				<form id="comment-1" name="commentFirst" class="card-form-close">
-					<div class="comment-name">
-						<input required data-touched="false" name="name" type="text" maxlength="20" placeholder="Enter your name">
-						<div class="name-tooltip">
-							<span class="name-help">?</span>
-							<div id="comment-name-1" class="tooltip">
-								<span>Name should be at least 2 letters, max lenght - 20. Without numbers and any symbols.</span>
+					<form id="comment-1" name="commentFirst" class="card-form-close">
+						<div class="comment-name">
+							<input required data-touched="false" name="name" type="text" maxlength="20" placeholder="Enter your name">
+							<div class="name-tooltip">
+								<span class="name-help">?</span>
+								<div id="comment-name-1" class="tooltip">
+									<span>Name should be at least 2 letters, max lenght - 20. Without numbers and any symbols.</span>
+								</div>
 							</div>
 						</div>
-					</div>
 
-					<textarea data-touched="false" required maxlength="150" class="comment-text" name="comment" id="" rows="4" placeholder="Do you like this plant?"></textarea>
-					<button class="comment-btn" name="btn" type="submit">Add comment</button>
-				</form>
+						<textarea data-touched="false" required maxlength="150" class="comment-text" name="comment" rows="4" placeholder="Do you like this plant?"></textarea>
+						<button class="comment-btn" name="btn" type="submit">Add comment</button>
+					</form>
+				</div>
 			</div>
-		</div>
 
-		<div class="card">
-			<div class="card-img">
-				<img src="image/service/Succulents.jpg" alt="succulents">
-			</div>
-			<div class="card-text">
+			<div class="card">
+				<div class="card-img">
+					<img src="image/service/Succulents.jpg" alt="succulents">
+				</div>
+				<div class="card-text">
 
-				<form id="comment-2" name="commentSecond" class="card-form-close">
-					<div class="comment-name">
-						<input required data-touched="false" name="name" type="text" maxlength="20" placeholder="Enter your name">
-						<div class="name-tooltip">
-							<span class="name-help">?</span>
-							<div id="comment-name-2" class="tooltip">
-								<span>Name should be at least 2 letters, max lenght - 20. Without numbers and any symbols.</span>
+					<form id="comment-2" name="commentSecond" class="card-form-close">
+						<div class="comment-name">
+							<input required data-touched="false" name="name" type="text" maxlength="20" placeholder="Enter your name">
+							<div class="name-tooltip">
+								<span class="name-help">?</span>
+								<div id="comment-name-2" class="tooltip">
+									<span>Name should be at least 2 letters, max lenght - 20. Without numbers and any symbols.</span>
+								</div>
 							</div>
 						</div>
-					</div>
-										
-					<textarea data-touched="false" required class="comment-text" name="comment" id=""  rows="4" placeholder="Do you like this plant?"></textarea>
-					<button class="comment-btn" name="btn" type="submit">Add comment</button>
-				</form>
+											
+						<textarea data-touched="false" required class="comment-text" name="comment" id=""  rows="4" placeholder="Do you like this plant?"></textarea>
+						<button class="comment-btn" name="btn" type="submit">Add comment</button>
+					</form>
+				</div>
 			</div>
 		</div>
-
 	</div>
 
 
@@ -208,7 +203,6 @@
 
 	<!-- Initialize Firebase -->
 	<script src="/__/firebase/init.js"></script>
-
 </body>
 
 </html>

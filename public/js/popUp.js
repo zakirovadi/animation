@@ -1,85 +1,111 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-//------------SHOW POP-UP CONSULTATION----------------
-    // var containerPopup = document.getElementsByClassName('pop-up-container')[0],
-    //     popup = document.getElementsByClassName('pop-up')[0],
-    //     btnOpenPopup = document.getElementById('free-consultation'),
-    //     btnClosePopup = document.getElementsByClassName('close')[0];
-
-    // btnOpenPopup.addEventListener('click', showContainerPopup);
-    // btnClosePopup.addEventListener('click', hidePopup);
+    const popupBtn = document.getElementById('pop-up'),
+        containerPopup = document.getElementById('overlay-pop-up'),
+        formPopup = document.forms.sendMessage;
 
 
+    // открыть окно
+    const showPopup = () => {
+        containerPopup.style.display = 'flex';
+    }
 
-    // containerPopup.addEventListener('transitionend', function(){
+    // закрыть окно
+    const closePopup = () => {
+        containerPopup.style.display = 'none';
+        if(formPopup.style.display === 'none'){
+            const alert = document.getElementsByClassName('alert')[0];
+            alert.parentNode.removeChild(alert);
 
-    //     if(this.classList.contains('pop-show')){
-    //         showPopup();
-    //     }else{
-    //         btnOpenPopup.style.backgroundColor = '';
-
-    //         setTimeout(function(){
-    //             containerPopup.style.display = 'none';
-    //         }, 400);
-    //     }
-
-    // });
-
-    // popup.addEventListener('transitionend', function(){
-
-    //     if(!this.classList.contains('pop-up-show')){
-    //         hideContainerPopup();
-    //     }
-    // });
+            formPopup.style.display = 'flex';
+        }
+    }
 
 
-    // function showContainerPopup(){
-    //     containerPopup.style.display = 'block';
-    //     btnOpenPopup.style.backgroundColor = '#5cbbbe';
-
-    //     setTimeout(function(){
-    //         containerPopup.classList.add('pop-show');
-    //     }, 100);
-    // }
-
-    // function hideContainerPopup(){
-    //     containerPopup.classList.remove('pop-show');
-    // }
-
-    // function showPopup(){
-    //     popup.classList.add('pop-up-show');
-    // }
-
-    // function hidePopup(){
-    //     popup.classList.remove('pop-up-show');
-    // }
+    popupBtn.addEventListener('click', showPopup);
+    containerPopup.addEventListener('click', closePopup);
+    formPopup.addEventListener('click', e => e.stopPropagation())
 
 
+    // валидация имени
+    formPopup.elements.name.addEventListener('change', e => validateName(e.target));
+    formPopup.elements.name.addEventListener('input', e => e.target.dataset.touched === 'true' ? validateName(e.target) : null);
+
+    const validateName = input => {
+        input.dataset.touched = 'true';
+
+        if(input.value.trim().length < 2){
+            input.classList.add('error');
+            return;
+        }else if(!/^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$/g.test(input.value)){
+            input.classList.add('error');
+            return;
+        }
+
+        input.classList.remove('error');
+    }
+
+    // валидация почты
+    formPopup.elements.email.addEventListener('change', e => validateEmail(e.target));
+    formPopup.elements.email.addEventListener('input', e => e.target.dataset.touched === 'true' ? validateEmail(e.target) : null);
+
+    const validateEmail = input => {
+        input.dataset.touched = 'true';
+
+        const reg = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
+        if(!reg.test(input.value) || input.value === ''){
+            input.classList.add('error');
+            return;
+        }
+
+        input.classList.remove('error');
+    }
+
+    // валидация сообщения
+    formPopup.elements.message.addEventListener('change', e => validateComment(e.target));
+    formPopup.elements.message.addEventListener('input', e => e.target.dataset.touched === 'true' ? validateComment(e.target) : null);
+
+    const validateComment = comment => {
+        comment.dataset.touched = 'true';
+
+        if(comment.value.trim().length < 2){
+            input.classList.add('error');
+            return;
+        }
+
+        comment.classList.remove('error');
+    }
 
 
+    // отправка формы
+    formPopup.elements.submit.addEventListener('click', e => {
+        e.preventDefault();
+        if(formPopup.elements.name.classList.contains('error') || formPopup.elements.name.dataset.touched === 'false'){
+            formPopup.elements.name.classList.add('error');
+            formPopup.elements.name.dataset.touched = 'true';
+            return
+        }else if(formPopup.elements.email.classList.contains('error') || formPopup.elements.email.dataset.touched === 'false'){
+            formPopup.elements.email.classList.add('error');
+            formPopup.elements.email.dataset.touched = 'true';
+            return
+        }if(formPopup.elements.message.classList.contains('error') || formPopup.elements.message.dataset.touched === 'false'){
+            formPopup.elements.message.classList.add('error');
+            formPopup.elements.message.dataset.touched = 'true';
+            return
+        }
 
-//------------Verification POP-UP-------------------------
+        formPopup.elements.name.value = '';
+        formPopup.elements.email.value = '';
+        formPopup.elements.message.value = '';
 
-    // var warning = document.createElement('span');
-    // warning.classList.add('form-error');
+        formPopup.style.display = 'none';
 
-    // var clientName = document.getElementById('clientName'),
-    //     clientTel = document.getElementById('clientTel');
+        const alert = document.createElement('div');
+        alert.classList.add('alert');
+        alert.innerHTML = 'Thank you!';
 
-    // clientName.addEventListener('blur', function(){
-    //     if(this.value.length > 10 || this.value.length < 2){
-    //         warning.innerHTML = 'имя от 2х до 10 символов';
-    //         this.parentNode.insertBefore(warning, this.nextSibling);
-    //     }else if(/[ -?]/.test(this.value)){
-    //         warning.innerHTML = 'имя не может содержать цифры или знаки';
-    //         this.parentNode.insertBefore(warning, this.nextSibling);
-    //     }
-    // });
-
-    // clientName.addEventListener('focus', removeError);
-
-    // function removeError(){
-        
-    // }
+        formPopup.parentNode.appendChild(alert);
+    })
 
 })

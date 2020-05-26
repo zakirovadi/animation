@@ -1,6 +1,7 @@
 @import url('gallery.css');
 @import url('slider.css');
 @import url('popUp.css');
+@import url('comments.css');
 
 
 /* colors:
@@ -39,8 +40,16 @@ h2{
     align-self: flex-start;
 }
 
-input, textarea{
+input, textarea, button{
     outline: none;
+    border: 0;
+    font-family: Roboto-Light, sans-serif;
+    box-sizing: border-box;
+    resize: none;
+}
+
+button:active{
+    border: 0;
 }
 
 .overlay{

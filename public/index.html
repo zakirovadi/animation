@@ -4,10 +4,12 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="image/favicon.png" type="image/png">
 	<title>Animation</title>
 	<script src="js/script.js"></script>
 	<script src="js/gallery.js"></script>
 	<script src="js/slider.js"></script>
+	<script src="js/comments.js"></script>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -143,6 +145,60 @@
 		<div id="open-gallery">
 		</div>
 	</div>
+
+
+	<div id="comments">
+		<h2>Comments.</h2>
+		<div class="comments">
+
+		<div class="card">
+			<div class="card-img">
+				<img src="image/service/Four Cactuses.jpg" alt="cactuses">
+			</div>
+			<div class="card-text">
+
+				<form id="comment-1" name="commentFirst" class="card-form-close">
+					<div class="comment-name">
+						<input required data-touched="false" name="name" type="text" maxlength="20" placeholder="Enter your name">
+						<div class="name-tooltip">
+							<span class="name-help">?</span>
+							<div id="comment-name-1" class="tooltip">
+								<span>Name should be at least 2 letters, max lenght - 20. Without numbers and any symbols.</span>
+							</div>
+						</div>
+					</div>
+
+					<textarea data-touched="false" required maxlength="150" class="comment-text" name="comment" id="" rows="4" placeholder="Do you like this plant?"></textarea>
+					<button class="comment-btn" name="btn" type="submit">Add comment</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="card-img">
+				<img src="image/service/Succulents.jpg" alt="succulents">
+			</div>
+			<div class="card-text">
+
+				<form id="comment-2" name="commentSecond" class="card-form-close">
+					<div class="comment-name">
+						<input required data-touched="false" name="name" type="text" maxlength="20" placeholder="Enter your name">
+						<div class="name-tooltip">
+							<span class="name-help">?</span>
+							<div id="comment-name-2" class="tooltip">
+								<span>Name should be at least 2 letters, max lenght - 20. Without numbers and any symbols.</span>
+							</div>
+						</div>
+					</div>
+										
+					<textarea data-touched="false" required class="comment-text" name="comment" id=""  rows="4" placeholder="Do you like this plant?"></textarea>
+					<button class="comment-btn" name="btn" type="submit">Add comment</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+
 
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="/__/firebase/7.14.3/firebase-app.js"></script>

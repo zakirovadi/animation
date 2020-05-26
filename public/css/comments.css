@@ -1,0 +1,156 @@
+#comments{
+    margin: 3em 10%;
+}
+
+.comments{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.card{
+    padding: 1em;
+    width: 48%;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 750px){
+    .comments{
+        flex-wrap: wrap;
+    }
+
+    .card{
+        width: 100%;
+    }
+
+    .card:last-child{
+        margin-top: 2em;
+    }
+}
+
+.card-img{
+    width: 100%;
+    height: 15em;
+    text-align: center;}
+
+.card-img img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.comment{
+    margin: 1em 0;
+    box-sizing: border-box;
+    padding: 1em;
+    background-color: #F7F7F2;
+}
+
+.comment h4{
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.comment span{
+    font-size: 0.8em;
+    float: right;
+}
+
+.card form{
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #1d1d1de7;
+}
+
+.card-form-close .comment-name{
+    display: none;
+}
+.card-form-close textarea{
+    display: none;
+}
+
+.comment-name{
+    width: 100%;
+}
+
+.comment-name input{
+    font-size: 1.2em;
+    color: #F7F7F2;
+    padding: 0 0.2em;
+    box-sizing: border-box;
+    border-bottom: 2px solid #F7F7F2;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.comment-name input::placeholder{
+    color: rgba(247, 247, 242, 0.8);
+}
+
+.comment-name input.error{
+    border-bottom: 2px solid #C20114;
+    color: #C20114;
+}
+.comment-name input.error::placeholder{
+    color: rgba(194, 1, 20, 0.8);
+}
+
+.name-tooltip{
+    position: relative;
+    display: inline-block;
+}
+
+.name-tooltip .name-help{
+    width: 1.2em;
+    height: 1.2em;
+    background-color: #F7F7F2;
+    margin-left: 1em;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.tooltip{
+    position: absolute;
+    display: none;
+    background-color: white;
+    border: 1px solid;
+    box-sizing: border-box;
+    padding: 0.5em;
+    font-size: 0.8em;
+    width: 8em;
+    left: -1em;
+    bottom: 100%;
+}
+
+.comment-text{
+    margin: 1em 0;
+    width: 100%;
+    padding: 0.5em;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.comment-text::placeholder{
+    font-size: 1em;
+}
+
+.comment-text.error{
+    border: 1px solid #C20114;
+}
+
+.comment-btn{
+    background-color: #F7F7F2;
+    border: 0;
+    color: #1d1d1de7;
+    font-weight: 600;
+    padding: 0.5em;
+    font-size: 1.2em;
+    align-self: flex-end;
+
+    transition: all 0.5s ease-in-out 0s;
+    -webkit-transition: all 0.5s ease-in-out 0s;
+}

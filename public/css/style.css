@@ -543,3 +543,38 @@ h1{
 .ipad-date{
     font-size: 0.6em;
 }
+
+
+
+/* FOOTER */
+footer{
+    background: #1d1d1de7;
+    color: #ffffffa8;
+    width: 100%;
+    display: flex;
+    border-top: 2px solid black;
+    box-sizing: border-box;
+    padding: 4em;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 600px){
+    footer{
+        flex-direction: column;
+    }
+
+    footer div:last-child{
+        margin-top: 2em;
+    }
+}
+
+footer div{
+    font-size: 1.2em;
+}
+
+footer a{
+    text-decoration: none;
+    color: #ffffffa8;
+    margin: 0 1em;
+}

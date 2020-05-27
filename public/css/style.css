@@ -573,8 +573,14 @@ footer div{
     font-size: 1.2em;
 }
 
+footer div:last-child{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 footer a{
     text-decoration: none;
     color: #ffffffa8;
-    margin: 0 1em;
+    margin: 1em 1em;
 }

@@ -2,6 +2,7 @@
 Simple page with minimalistic desighn and interesting animation.
 
 ## I mastered:
+  * Native JavaScript ES6+ 
   * CSS animation
   * @keyframes
   * adaptive design
